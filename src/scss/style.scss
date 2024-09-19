@@ -1,0 +1,33 @@
+// If you want to override variables do it here
+@import "variables";
+
+// Import styles
+@import "@coreui/coreui/scss/coreui";
+
+// Vendors
+@import "vendors/simplebar";
+
+// Custom styles for this theme
+@import "theme";
+
+// If you want to add custom CSS you can put it here
+@import "custom";
+
+
+  
+  .animated-text {
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  /* Animation for the text */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
