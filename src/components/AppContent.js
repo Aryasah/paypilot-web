@@ -4,8 +4,11 @@ import { CContainer, CSpinner } from '@coreui/react'
 
 // routes config
 import routes from '../routes'
+import { useSelector } from 'react-redux'
 
 const AppContent = () => {
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn); // Access login state from Redux
+  if(!isLoggedIn) return <Navigate to="/login" />;
   return (
     <CContainer className="px-4" lg>
       <Suspense fallback={<CSpinner color="primary" />}>

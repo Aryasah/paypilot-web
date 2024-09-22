@@ -17,17 +17,19 @@ import {
 } from "@coreui/react";
 import moment from "moment";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { SchedulePaymentService } from "src/services/api-services";
 
 const ScheduleBill = () => {
   const [schedulePayments, setSchedulePayments] = useState([]);
   const [category, setCategory] = useState("All");
-  const [userId, setUserId] = useState("amansah");
+  const userId = useSelector((state) => state.auth.userId);
   const today = new Date().toISOString().split("T")[0];
   const [fromDate, setFromDate] = useState("");
   const [toDate, setToDate] = useState("");
   const fetchBillByCategory = async () => {
+    if(!userId) return;
     try {
       const response = await SchedulePaymentService.getBillsByCategory(
         userId,

@@ -48,6 +48,7 @@ import PaymentIcon from "src/components/shared/PaymentIcon";
 import moment from "moment";
 import { SchedulePaymentService } from "src/services/api-services";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const data = [
   {
@@ -83,12 +84,13 @@ const data = [
 const SchedulePaymentList = () => {
   const [schedulePayments, setSchedulePayments] = useState([]);
   const [category, setCategory] = useState("All");
-  const [userId, setUserId] = useState("amansah");
+  const userId = useSelector((state) => state.auth.userId);
   const today = new Date().toISOString().split("T")[0];
   const [fromDate, setFromDate] = useState(today);
   const [toDate, setToDate] = useState(today);
   const navigate = useNavigate();
   const fetchScheduledPayments = async () => {
+    if (!userId) return;
     try {
       const response = await SchedulePaymentService.getScheduledPayments(
         userId

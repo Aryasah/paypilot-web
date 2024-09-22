@@ -1,0 +1,140 @@
+/**
+ * Author: Rahul Prasad
+ * Date: 5th September 2024
+ * 
+ * Description: This is styles for user signup page.
+ */
+
+.registration-container:before {
+  position: fixed;
+  content: "";
+  left: 0;
+  right: 0;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('../../assets/images/background.png') no-repeat center center/cover;
+  filter: blur(8px);
+  backdrop-filter: blur(5px);
+
+}
+
+.registration-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.image-container {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.form-container {
+  width: 85%;
+  padding-right: 8%;
+}
+
+h2 {
+  font-size: 36px;
+  color: #6a1b9a;
+  font-style: italic;
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.signup_span {
+  width: 0;
+  display: inline-block;
+  overflow: visible;
+  /* Ensures the content overflows the 0-width box */
+  white-space: nowrap;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+input {
+  background-color: rgba(255, 255, 255, 0.3);
+  /* White with 30% transparency */
+  color: #000;
+  /* Text color */
+  box-sizing: border-box;
+  width: 48%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+input::placeholder {
+  color: black;
+  opacity: 1;
+}
+
+select {
+  box-sizing: border-box;
+  width: 48%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #6a1b9a;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #4a148c;
+}
+
+.login-link {
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.login-link a {
+  color: black;
+  text-decoration: underline;
+}
+
+.formErrors {
+  color: red;
+  font-size: 18px;
+
+}

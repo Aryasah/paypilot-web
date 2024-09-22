@@ -1,28 +1,34 @@
-import React, { Suspense, useEffect } from 'react'
-import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import React, { Suspense, useEffect } from "react";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import { CSpinner, useColorModes } from '@coreui/react'
-import './scss/style.scss'
-import DefaultLayout from './layout/DefaultLayout'
+import { CSpinner, useColorModes } from "@coreui/react";
+import "./scss/style.scss";
+import DefaultLayout from "./layout/DefaultLayout";
+import SignUp from "./components/squad4/SignUp";
+import Login from "./components/squad4/Login";
 
 function App() {
-  const { isColorModeSet, setColorMode } = useColorModes('coreui-free-react-admin-template-theme')
-  const storedTheme = useSelector((state) => state.theme)
+  const { isColorModeSet, setColorMode } = useColorModes(
+    "coreui-free-react-admin-template-theme"
+  );
+  const storedTheme = useSelector((state) => state.theme);
 
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.href.split('?')[1])
-    const theme = urlParams.get('theme') && urlParams.get('theme').match(/^[A-Za-z0-9\s]+/)[0]
+    const urlParams = new URLSearchParams(window.location.href.split("?")[1]);
+    const theme =
+      urlParams.get("theme") &&
+      urlParams.get("theme").match(/^[A-Za-z0-9\s]+/)[0];
     if (theme) {
-      setColorMode(theme)
+      setColorMode(theme);
     }
 
     if (isColorModeSet()) {
-      return
+      return;
     }
 
-    setColorMode(storedTheme)
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+    setColorMode(storedTheme);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <BrowserRouter>
@@ -34,6 +40,10 @@ function App() {
         }
       >
         <Routes>
+          {/* Define the Signup route */}
+          <Route path="/signup" element={<SignUp />} />
+          {/* Define the Login route */}
+          <Route path="/login" element={<Login />} />
           <Route path="*" name="Home" element={<DefaultLayout />} />
         </Routes>
       </Suspense>

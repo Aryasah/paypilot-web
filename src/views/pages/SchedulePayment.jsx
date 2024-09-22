@@ -13,30 +13,6 @@ import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import { SchedulePaymentService } from "src/services/api-services";
 
-const data = [
-  {
-    paymentId: 1,
-    paymentDate: "2024-09-17",
-    paymentMode: "CREDIT_CARD",
-    payerAccountNumber: "123456",
-    amountPaid: 205.0,
-    status: "COMPLETED",
-    category: "GROCERIES",
-    bill: {
-      billId: 1,
-      billName: "Google Pay Bill",
-      billCategory: "Groceries",
-      dueDate: "2024-01-30",
-      amount: 11000.5,
-      reminderFrequency: "Monthly",
-      attachment: "electricity_bill_september.pdf",
-      notes: "Pay by end of the month",
-      isRecurring: "Y",
-      paymentStatus: "Paid",
-      userId: "amansah",
-    },
-  },
-];
 const SchedulePayment = () => {
   const location = useLocation();
   const navigate = useNavigate();

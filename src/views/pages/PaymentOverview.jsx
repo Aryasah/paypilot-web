@@ -15,12 +15,13 @@ import {
 } from "@coreui/react";
 import moment from "moment";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { PaymentService } from "src/services/api-services";
 
 const PaymentOverview = () => {
   const [payments, setPayments] = useState([]);
   const [category, setCategory] = useState([]);
-  const [userId, setUserId] = useState("amansah");
+  const userId = useSelector((state) => state.auth.userId);
   const today = new Date().toISOString().split("T")[0];
   const [fromDate, setFromDate] = useState("");
   const [toDate, setToDate] = useState("");

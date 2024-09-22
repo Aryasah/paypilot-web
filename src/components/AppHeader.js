@@ -27,6 +27,7 @@ import { NavLink } from 'react-router-dom'
 import { AppBreadcrumb } from './index'
 
 import avatar8 from './../assets/images/avatars/8.jpg'
+import { setSidebar } from 'src/store/store'
 
 
 const AppHeader = () => {
@@ -34,7 +35,7 @@ const AppHeader = () => {
   const { colorMode, setColorMode } = useColorModes('coreui-free-react-admin-template-theme')
 
   const dispatch = useDispatch()
-  const sidebarShow = useSelector((state) => state.sidebarShow)
+  const sidebarShow = useSelector((state) => state.sidebar.sidebarShow);
 
   useEffect(() => {
     document.addEventListener('scroll', () => {
@@ -47,7 +48,7 @@ const AppHeader = () => {
     <CHeader position="sticky" className="mb-4 p-0" ref={headerRef}>
       <CContainer className="border-bottom px-4" fluid>
         <CHeaderToggler
-          onClick={() => dispatch({ type: 'set', sidebarShow: !sidebarShow })}
+          onClick={() => dispatch(setSidebar({ sidebarShow: !sidebarShow }))}
           style={{ marginInlineStart: '-14px' }}
         >
           <CIcon icon={cilMenu} size="lg" />

@@ -1,6 +1,4 @@
-import {
-  cilAvTimer
-} from "@coreui/icons";
+import { cilAvTimer } from "@coreui/icons";
 import CIcon from "@coreui/icons-react";
 import {
   CCard,
@@ -14,24 +12,24 @@ import {
   CTableDataCell,
   CTableHead,
   CTableHeaderCell,
-  CTableRow
+  CTableRow,
 } from "@coreui/react";
 import moment from "moment";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { PaymentService } from "src/services/api-services";
 
 const PaymentProgress = () => {
   const [payments, setPayments] = useState([]);
   const [category, setCategory] = useState([]);
-  const [userId, setUserId] = useState("amansah");
+  const userId = useSelector((state) => state.auth.userId);
   const today = new Date().toISOString().split("T")[0];
   const [fromDate, setFromDate] = useState(today);
   const [toDate, setToDate] = useState(today);
   const fetchPaymentHistory = async () => {
+    if(!userId) return;
     try {
-      const response = await PaymentService.getPaymentProgress(
-        userId
-      );
+      const response = await PaymentService.getPaymentProgress(userId);
       console.log("response", response);
       setPayments(response);
     } catch (error) {
