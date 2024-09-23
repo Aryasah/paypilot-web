@@ -7,6 +7,8 @@ import "./scss/style.scss";
 import DefaultLayout from "./layout/DefaultLayout";
 import SignUp from "./components/squad4/SignUp";
 import Login from "./components/squad4/Login";
+import { AnimatePresence } from "framer-motion";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const { isColorModeSet, setColorMode } = useColorModes(
@@ -31,23 +33,25 @@ function App() {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <BrowserRouter>
-      <Suspense
-        fallback={
-          <div className="pt-3 text-center">
-            <CSpinner color="primary" variant="grow" />
-          </div>
-        }
-      >
-        <Routes>
-          {/* Define the Signup route */}
-          <Route path="/signup" element={<SignUp />} />
-          {/* Define the Login route */}
-          <Route path="/login" element={<Login />} />
-          <Route path="*" name="Home" element={<DefaultLayout />} />
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+    <AnimatePresence mode="wait">
+      <BrowserRouter>
+        <Suspense
+          fallback={
+            <div className="pt-3 text-center">
+              <CSpinner color="primary" variant="grow" />
+            </div>
+          }
+        >
+          <Routes>
+            {/* Define the Signup route */}
+            <Route path="/signup" element={<SignUp />} />
+            {/* Define the Login route */}
+            <Route path="/login" element={<Login />} />
+            <Route path="*" name="Home" element={<DefaultLayout />} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
+    </AnimatePresence>
   );
 }
 

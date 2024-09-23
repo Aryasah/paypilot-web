@@ -16,9 +16,9 @@ const SnoozeOrMarkBillsPaid = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const billsPerPage = 4;
 
-  const username = useSelector((state) => state.user);
+  const username = useSelector((state) => state.auth.userId);
   useEffect(() => {
-    fetch(`http://localhost:8080/bill/all?userId=${username}`)
+    fetch(`http://localhost:8082/bill/all?userId=${username}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -86,7 +86,7 @@ const SnoozeOrMarkBillsPaid = () => {
         };
 
         fetch(
-          `http://localhost:8080/bill/snooze?newDate=${
+          `http://localhost:8082/bill/snooze?newDate=${
             snoozeDate.toISOString().split("T")[0]
           }&userId=${username}`,
           {
@@ -149,7 +149,7 @@ const SnoozeOrMarkBillsPaid = () => {
         paymentStatus: "paid",
       };
 
-      fetch(`http://localhost:8080/bill/markAsPaid?userId=${username}`, {
+      fetch(`http://localhost:8082/bill/markAsPaid?userId=${username}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

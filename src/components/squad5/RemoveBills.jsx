@@ -10,7 +10,7 @@ import { faListCheck } from '@fortawesome/free-solid-svg-icons';
 
 function RemoveBills() {
 
-    const username = useSelector((state) => state.user);
+    const username = useSelector((state) => state.auth.userId);
     const [list, setList] = useState([]);
     const [selectedBillIds, setSelectedBillIds] = useState([]);
     const [filteredBills, setFilteredBills] = useState([]);
@@ -21,7 +21,7 @@ function RemoveBills() {
     const categories = ["Utilities", "Subscription", "Rent", "Other"];
 
     useEffect(() => {
-        fetch(`http://localhost:8080/bill/all?userId=${username}`)
+        fetch(`http://localhost:8082/bill/all?userId=${username}`)
             .then((response) => response.json())
             .then((data) => {
                 setList(data);
@@ -53,7 +53,7 @@ function RemoveBills() {
 
         try {
             const deletePromises = selectedBillIds.map(async (id) => {
-                const response = await fetch(`http://localhost:8080/bill/remove/${id}?userId=${username}`, {
+                const response = await fetch(`http://localhost:8082/bill/remove/${id}?userId=${username}`, {
                     method: 'DELETE',
                 });
                 return response.ok;

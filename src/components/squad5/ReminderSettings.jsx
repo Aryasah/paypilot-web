@@ -18,7 +18,7 @@ function ReminderSettings() {
 
     useEffect(() => {
         if(category) {
-            fetch('http://localhost:8080/bill/all?userId=user123')
+            fetch('http://localhost:8082/bill/all?userId=user123')
                 .then(response => response.json())
                 .then(data => {
                     // Filter bills based on the selected category

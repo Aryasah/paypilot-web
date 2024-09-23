@@ -90,7 +90,11 @@ const SchedulePaymentList = () => {
   const [toDate, setToDate] = useState(today);
   const navigate = useNavigate();
   const fetchScheduledPayments = async () => {
-    if (!userId) return;
+    if (!userId) 
+    {
+      alert("Please login to view scheduled payments");
+      return;
+    }
     try {
       const response = await SchedulePaymentService.getScheduledPayments(
         userId
@@ -226,6 +230,9 @@ const SchedulePaymentList = () => {
                         <PaymentIcon paymentMethod={item.paymentMode} />
                         &nbsp;
                         <p className="mb-0">{item.paymentMode}</p>
+                      </div>
+                      <div className="small text-body-secondary text-nowrap">
+                        Amount: {item.amount}
                       </div>
                     </CTableDataCell>
                     <CTableDataCell>

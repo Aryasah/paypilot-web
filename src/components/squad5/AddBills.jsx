@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 
 function AddBills() {
     // Get the username from the Redux store
-    const username = useSelector((state) => state.user);
+    const username = useSelector((state) => state.auth.userId);
 
     const [billName, setBillName] = useState('');
     const [category, setCategory] = useState('');
@@ -61,7 +61,7 @@ function AddBills() {
 
         try {
             // Send POST request to the API
-            const response = await fetch('http://localhost:8080/bill/add', {
+            const response = await fetch('http://localhost:8082/bill/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -19,7 +19,7 @@ const OverdueBill = () => {
   const username=useSelector(state=>state.auth.userId)
 
   useEffect(() => {
-    fetch(`http://localhost:8080/bill/overdue?userId=${username}`)
+    fetch(`http://localhost:8082/bill/overdue?userId=${username}`)
       .then((response) => response.json())
       .then((data) => {
         setList(data);

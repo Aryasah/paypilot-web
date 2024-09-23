@@ -38,7 +38,10 @@ const ScheduleBill = () => {
         toDate
       );
       console.log("response", response);
-      setSchedulePayments(response);
+      const filteredResponse = response.filter(
+        (item) => item?.paymentStatus != "Paid"
+      )
+      setSchedulePayments(filteredResponse);
     } catch (error) {
       console.log(error);
     }
@@ -177,7 +180,7 @@ const ScheduleBill = () => {
                   }}
                 >
                   <CTableDataCell colSpan="6" className="text-center">
-                    No payments found
+                    No bills found
                   </CTableDataCell>
                 </CTableRow>
               )}

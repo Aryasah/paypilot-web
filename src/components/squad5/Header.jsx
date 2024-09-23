@@ -9,7 +9,7 @@ import { logout } from 'src/store/authSlice';
 function Header() {
 
     // Get the username from the Redux store
-    const username = useSelector((state) => state.user);
+    const username = useSelector((state) => state.auth.userId);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
