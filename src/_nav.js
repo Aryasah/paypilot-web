@@ -24,36 +24,36 @@ const _nav = [
   {
     component: CNavGroup,
     name: "Manage Bills",
-    to: "/bill",
+    to: "/manageBills",
     icon: <CIcon icon={cilCreditCard} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
         name: "Add Bill",
-        to: "/bill",
+        to: "/manageBills/addBills",
       },
       {
         component: CNavItem,
         name: "Bill Overview",
-        to: "/bill/overview",
+        to: "/manageBills/billsOverview",
       },
       {
         component: CNavItem,
         name: "Upcoming/Overdue Bills",
-        to: "/bill/upcoming",
+        to: "/manageBills/overdueUpcoming",
       },
     ],
   },
   {
     component: CNavItem,
     name: "Snooze Bill",
-    to: "/bill/snooze",
+    to: "/manageBills/snoozeOrMarkBillsPaid",
     icon: <CIcon icon={cilAlarm} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
     name: "Reminder Settings",
-    to: "/bill/reminder",
+    to: "/manageBills/reminderSettings",
     icon: <CIcon icon={cilSettings} customClassName="nav-icon" />,
   },
   {
