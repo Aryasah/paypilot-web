@@ -1,0 +1,47 @@
+.header {
+    position: relative;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Center the logo horizontally */
+    align-items: center; /* Center items vertically */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in width calculation */
+    z-index: 1; /* Ensure the header is above the background */
+}
+
+.logo {
+    font-size: 3rem;
+    margin-left: 50px;
+    color: purple;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    margin-right: auto; /* Push tabs to the right */
+    cursor: pointer;
+}
+
+.tab-container {
+    display: flex;
+    margin-right: 50px;
+    gap: 100px; /* Space between tabs */
+}
+
+.tab {
+    color: gray;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.tab .fa-icon {
+    margin-right: 8px; /* Space between icon and text */
+    margin-left: 8px;
+}
+
+.link-wrapper {
+    text-decoration: none;
+    color: inherit;
+}
+

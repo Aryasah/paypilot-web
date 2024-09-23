@@ -1,0 +1,73 @@
+.bill-details-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Ensure content starts from the top */
+    align-items: center;
+    min-height: 100vh; /* Take up full viewport height */
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+}
+
+.bill-details-page h2 {
+    margin: 20px 0;
+    font-style: italic;
+    color: purple;
+    font-weight: bold;
+}
+
+.bills-table-container {
+    width: 90%;
+    max-height: 400px; /* Adjust this value based on your design needs */
+    overflow-y: auto;  /* Enables vertical scrolling */
+}
+
+.bills-table {
+    width: 70%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f4eafc; /* Light purple background */
+    font-size: 1rem;
+}
+
+.bills-table th,
+.bills-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+}
+
+.bills-table th {
+    background-color: #8e44ad; /* Darker purple for headers */
+    color: white;
+}
+
+.bills-table tr:hover {
+    background-color: #dcd0ff; /* Slightly darker purple on hover */
+}
+
+.link-wrapper {
+    text-decoration: none;
+    color: inherit;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination-btn {
+    margin: 0 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.pagination span {
+    font-weight: bold;
+}

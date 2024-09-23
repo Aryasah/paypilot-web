@@ -1,0 +1,41 @@
+.failure-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: white;
+    text-align: center; /* Ensure that text aligns center */
+    border-radius: 20px;
+}
+
+.failure-container {
+    display: inline-block; /* Ensure the container takes up only the space it needs */
+    text-align: center;
+    padding: 50px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.failure-icon {
+    font-size: 80px;
+    color: #dc3545;
+    margin-bottom: 20px;
+}
+
+.failure-heading {
+    font-size: 36px;
+    color: #dc3545;
+    margin-bottom: 20px;
+}
+
+.failure-message {
+    font-size: 18px;
+    color: grey;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.btn-danger {
+    margin: 10px;
+}

@@ -1,0 +1,64 @@
+.payment-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+}
+
+.payment-container {
+    display: flex;
+    flex-direction: row;
+    gap: 50px; /* Adds spacing between the list group and the content */
+}
+
+.list-group {
+    width: 250px; /* Set a fixed width for the list group */
+    margin-left: 75px; /* Add left margin */
+    margin-top: 75px;
+}
+
+.payment__page__card {
+    width: 12rem; /* Set a fixed width for all cards */
+    height: 200px; /* Set a fixed height for all cards */
+    display: flex; /* Use flex to center content */
+    flex-direction: column; /* Align items vertically */
+    justify-content: space-around; /* Space out card body */
+    margin-bottom: 20px; /* Space between rows of cards */
+    margin-top: 50px;
+    overflow: hidden; /* Ensure content stays within the card bounds */
+    cursor: pointer;
+}
+
+.card-img-top {
+    width: 100%; /* Force the image to take up the full width of the card */
+    height: 120px; /* Fixed height for all images */
+    object-fit: contain; /* Ensure images fit within the area without being cropped */
+}
+
+
+.payment-section {
+    flex: 1; /* Allows the payment section to take up available space */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px; /* Adds spacing between bank icons/cards */
+    justify-content: space-around; /* Center the cards within the section */
+}
+
+/* Align the Select Payment Method section */
+h2 {
+    text-align: center; /* Center the header */
+    margin-left: 75px;
+}
+
+/* Add spacing between form elements */
+.mb-3 {
+    margin-bottom: 20px; /* Space between input fields */
+}
+
+/* Additional spacing for date input fields */
+input[type="text"], input[type="email"] {
+    /* margin-bottom: 15px; Additional spacing */
+}

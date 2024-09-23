@@ -1,0 +1,22 @@
+.manage-bills {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Ensure content starts from the top */
+    align-items: center;
+    min-height: 100vh; /* Take up full viewport height */
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+}
+
+.info-card-container {
+    margin-top: 20px;
+}
+
+.features-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 20px;
+}

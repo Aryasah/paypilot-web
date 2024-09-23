@@ -1,0 +1,91 @@
+.remove-bills {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Ensure content starts from the top */
+    align-items: center;
+    min-height: 100vh; /* Take up full viewport height */
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+}
+
+h2 {
+    color: purple;
+    font-style: italic;
+    margin-bottom: 20px;
+    text-align: center; /* Center the heading */
+    font-weight: bold;
+}
+
+.bills-table {
+    width: 70%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f4eafc; /* Light purple background */
+    font-size: 1rem;
+}
+
+.bills-table th,
+.bills-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+}
+
+.bills-table th {
+    background-color: #8e44ad; /* Darker purple for headers */
+    color: white;
+}
+
+.bills-table tr:hover {
+    background-color: #dcd0ff; /* Slightly darker purple on hover */
+}
+
+.delete-button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+  
+.pagination button {
+    background-color: #003a79; /* Blue background color */
+    border: 1px solid #003a79; /* Blue border */
+    color: white; /* White text color */
+    padding: 5px 10px; /* Smaller padding for smaller buttons */
+    margin: 0 5px; /* Space between buttons */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 14px; /* Smaller text size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */
+}
+  
+.pagination button:disabled {
+    background-color: #d6d6d6; /* Grey background for disabled state */
+    border-color: #8d8c8c; /* Grey border for disabled state */
+    color: #a0a0a0; /* Grey text color for disabled state */
+    cursor: not-allowed; /* Not-allowed cursor for disabled state */
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: #014084; /* Darker blue background on hover */
+    border-color: #014084; /* Darker blue border on hover */
+}
+
+.pagination span {
+    margin: 0 10px; /* Space around page number indicator */
+    font-size: 14px; /* Match text size with buttons */
+    line-height: 1.5; /* Line height for better readability */
+}

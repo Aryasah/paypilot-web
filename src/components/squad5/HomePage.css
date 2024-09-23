@@ -1,0 +1,19 @@
+.homepage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures spacing between content */
+    align-items: center;
+    min-height: 100vh; /* Takes up the full viewport height */
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.info-card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    width: 100vw;
+    margin-top: auto;
+}

@@ -1,0 +1,107 @@
+.snooze-bill-page {
+    min-height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .table-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .bill-table {
+    width: 70%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f4eafc; /* Light purple background */
+    font-size: 1rem;
+  }
+  
+  .bill-table th,
+  .bill-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+  }
+  
+  .bill-table th {
+    background-color: #8e44ad; /* Darker purple for headers */
+    color: white;
+  }
+  
+  .bill-table tr:hover {
+    background-color: #dcd0ff; /* Slightly darker purple on hover */
+  }
+  
+  .bill-table input[type="checkbox"] {
+    width: 20px; /* Increase checkbox size */
+    height: 20px; /* Increase checkbox size */
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    justify-content: center;
+  }
+  .action-buttons .btn-success {
+    margin-left: 30px; 
+}
+.menu-buttons {
+  margin-top: -10px; 
+}
+.btn-success {
+  white-space: nowrap;
+  padding: 10px 20px; /* Adjust padding as needed */
+}
+
+  
+  .action-buttons div {
+    display: flex;
+    align-items: center;
+  }
+  
+  .action-buttons label {
+    margin-right: 10px;
+  }
+
+  .menu-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+  }
+  
+  .sort-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .date-picker {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  margin: 0 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.pagination span {
+  font-weight: bold;
+}

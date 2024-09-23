@@ -1,0 +1,12 @@
+.back-button {
+    display: flex;
+    justify-content: flex-end; /* Aligns the button to the right */
+    width: 95%; /* Reduces the width to keep it away from the full edge */
+    margin-top: 10px;
+    margin-right: 50px; /* Adjust the space between the button and the right side */
+}
+.link-wrapper {
+    text-decoration: none;
+    color: inherit;
+}
+  
