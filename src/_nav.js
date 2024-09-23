@@ -1,4 +1,5 @@
 import {
+  cilAccountLogout,
   cilAlarm,
   cilAvTimer,
   cilBell,
@@ -100,14 +101,7 @@ const _nav = [
         to: "/payment/progress",
       },
     ],
-  },
-
-  {
-    component: CNavItem,
-    name: "Notifications",
-    to: "/notifications",
-    icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
-  },
+  }
 ];
 
 export default _nav;

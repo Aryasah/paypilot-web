@@ -1,13 +1,18 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import PropTypes from 'prop-types'
+import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 
-import SimpleBar from 'simplebar-react'
-import 'simplebar-react/dist/simplebar.min.css'
+import SimpleBar from "simplebar-react";
+import "simplebar-react/dist/simplebar.min.css";
 
-import { CBadge, CNavLink, CSidebarNav } from '@coreui/react'
+import { CBadge, CNavLink, CSidebarNav } from "@coreui/react";
+import CIcon from "@coreui/icons-react";
+import { cilAccountLogout } from "@coreui/icons";
+import { useDispatch } from "react-redux";
+import { logout } from "src/store/authSlice";
 
 export const AppSidebarNav = ({ items }) => {
+  const dispatch = useDispatch();
   const navLink = (name, icon, badge, indent = false) => {
     return (
       <>
@@ -25,20 +30,17 @@ export const AppSidebarNav = ({ items }) => {
           </CBadge>
         )}
       </>
-    )
-  }
+    );
+  };
 
   const navItem = (item, index, indent = false) => {
     const { component, name, badge, icon, ...rest } = item;
     const Component = component;
-    
+
     return (
       <Component as="div" key={index}>
         {rest.to || rest.href ? (
-          <CNavLink
-            {...(rest.to && { as: NavLink, to: rest.to })}
-            {...rest}
-          >
+          <CNavLink {...(rest.to && { as: NavLink, to: rest.to })} {...rest}>
             {navLink(name, icon, badge, indent)}
           </CNavLink>
         ) : (
@@ -49,25 +51,44 @@ export const AppSidebarNav = ({ items }) => {
   };
 
   const navGroup = (item, index) => {
-    const { component, name, icon, items, to, ...rest } = item
-    const Component = component
+    const { component, name, icon, items, to, ...rest } = item;
+    const Component = component;
     return (
-      <Component compact as="div" key={index} toggler={navLink(name, icon)} {...rest}>
+      <Component
+        compact
+        as="div"
+        key={index}
+        toggler={navLink(name, icon)}
+        {...rest}
+      >
         {item.items?.map((item, index) =>
-          item.items ? navGroup(item, index) : navItem(item, index, true),
+          item.items ? navGroup(item, index) : navItem(item, index, true)
         )}
       </Component>
-    )
-  }
+    );
+  };
 
   return (
     <CSidebarNav as={SimpleBar}>
       {items &&
-        items.map((item, index) => (item.items ? navGroup(item, index) : navItem(item, index)))}
+        items.map((item, index) =>
+          item.items ? navGroup(item, index) : navItem(item, index)
+        )}
+
+      <div style={{
+        cursor: 'pointer',
+      }} onClick={()=>{
+        dispatch(logout());
+      }}>
+        <CNavLink>
+          <CIcon icon={cilAccountLogout} customClassName="nav-icon" />
+          Logout
+        </CNavLink>
+      </div>
     </CSidebarNav>
-  )
-}
+  );
+};
 
 AppSidebarNav.propTypes = {
   items: PropTypes.arrayOf(PropTypes.any).isRequired,
-}
+};
