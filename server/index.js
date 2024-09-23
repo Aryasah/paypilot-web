@@ -13,6 +13,11 @@ app.post('/bill/create-checkout-session', async (req, res) => {
     try {
         const { bills } = req.body;
 
+        const customer = await stripe.customers.create({
+            name: req.body.customer.name,
+            address: req.body.customer.address,
+        });
+
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             line_items: bills.map((bill) => ({
@@ -26,6 +31,7 @@ app.post('/bill/create-checkout-session', async (req, res) => {
                 quantity: 1,
             })),
             mode: 'payment',
+            customer: customer.id, // Pass the created customer ID here
             success_url: 'http://localhost:3000/bill/success', 
             cancel_url: 'http://localhost:3000/bill/failure',   
         });

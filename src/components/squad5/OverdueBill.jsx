@@ -49,10 +49,21 @@ const OverdueBill = () => {
 
     const paymentDetails = {
       bills: selectedBills.map((bill) => ({
+        name: bill.billName,
         category: bill.billCategory,
         amountDue: bill.amount,
         totalAmount: bill.amount,
       })),
+      customer: {
+        name: username,
+        address: {
+          line1: "123 Main St",
+          state: "MH",
+          city: "Mumbai",
+          postal_code: "400001",
+          country: "IN",
+        },
+      },
     };
 
     try {
@@ -89,7 +100,7 @@ const OverdueBill = () => {
       transition={{ duration: 0.5 }}
       className="overdue-bill-page"
     >
-      {/* <Header /> */}
+      <Header />
       <div>
         <BillSearchComponent handleListChange={setList} originalList={originalList} />
       </div>
