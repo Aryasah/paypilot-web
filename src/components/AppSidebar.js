@@ -43,7 +43,7 @@ const AppSidebar = () => {
         <CSidebarBrand style={{
           textDecoration: 'none',
         }} to="/">
-          {sidebarShow ? <p className="ms-2 text-primary animated-text mb-0 " style={{
+          {!unfoldable ? <p className="ms-2 text-primary animated-text mb-0 " style={{
             fontFamily: 'Poppins',
             fontSize: '24px',
             fontWeight: '600',

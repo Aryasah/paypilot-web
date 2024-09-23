@@ -8,8 +8,8 @@ import DefaultLayout from "./layout/DefaultLayout";
 import SignUp from "./components/squad4/SignUp";
 import Login from "./components/squad4/Login";
 import { AnimatePresence } from "framer-motion";
-import { ToastContainer } from "react-toastify";
-
+import { Bounce, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Import toastify CSS
 function App() {
   const { isColorModeSet, setColorMode } = useColorModes(
     "coreui-free-react-admin-template-theme"
@@ -51,6 +51,19 @@ function App() {
           </Routes>
         </Suspense>
       </BrowserRouter>
+      {/* Global ToastContainer for displaying toast notifications */}
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </AnimatePresence>
   );
 }
