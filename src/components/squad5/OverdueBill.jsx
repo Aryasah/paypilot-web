@@ -16,7 +16,7 @@ const OverdueBill = () => {
   const [originalList, setOriginalList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const billsPerPage = 5;
-  const username=useSelector(state=>state.user)
+  const username=useSelector(state=>state.auth.userId)
 
   useEffect(() => {
     fetch(`http://localhost:8080/bill/overdue?userId=${username}`)

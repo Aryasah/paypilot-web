@@ -4,7 +4,7 @@
     justify-content: flex-start; /* Ensure content starts from the top */
     align-items: center;
     min-height: 100vh; /* Take up full viewport height */
-    width: 100vw;
+    width: 100%;
     padding: 0;
     margin: 0;
 }

@@ -21,10 +21,10 @@ import BillDetailsPage from "./components/squad5/BillDetailsPage";
 import ReminderSettings from "./components/squad5/ReminderSettings";
 import Success from "./components/squad5/Success";
 import Failure from "./components/squad5/Failure";
+import HomePage from "./components/squad5/HomePage";
 
 const routes = [
-  { path: "/", exact: true, name: "Home" },
-  { path: "/dashboard", name: "Dashboard", element: Dashboard },
+  { path: "/dashboard", name: "Dashboard", element: HomePage },
   {
     path: "/payment/history",
     name: "Payment History",

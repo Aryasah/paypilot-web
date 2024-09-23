@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 const stripePromise = loadStripe("pk_test_51NPgG9SIMqwS7WNZEIQb2SSsVkXldQO3jNz2OvXM4YTNKbNTKEhyNIuIPYLD7jIEzDYH1G3hsRkaup8C7IffikUd00LiGt3GRA");
 
 const UpcomingBill = () => {
-  const username=useSelector(state=>state.user)
+  const username=useSelector(state=>state.auth.userId)
   const [list, setList] = useState([]);
   const [selectedBillIds, setSelectedBillIds] = useState([]);
   const [originalList, setOriginalList] = useState([]);

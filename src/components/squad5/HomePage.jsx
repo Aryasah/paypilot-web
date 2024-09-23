@@ -16,9 +16,9 @@ function HomePage() {
         >
             {/* <Header /> */}
             <div className='info-card-container'>
-                <InfoCard icon={faCalendarCheck} text="Schedule Payment" />
+                <InfoCard icon={faCalendarCheck} text="Schedule Payment" to="/schedule-bills"/>
                 <InfoCard icon={faListCheck} text="Manage Bills" to="/manageBills" />
-                <InfoCard icon={faMagnifyingGlassDollar} text="Track Payments" />
+                <InfoCard icon={faMagnifyingGlassDollar} text="Track Payments" to="/payment/history" />
             </div>
             <Support />
         </motion.div> 
