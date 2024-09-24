@@ -18,7 +18,7 @@ function ReminderSettings() {
 
     useEffect(() => {
         if(category) {
-            fetch('http://papilot.s3-website.ap-south-1.amazonaws.com/bill/all?userId=user123')
+            fetch('http://43.204.228.125:8080/bill/all?userId=user123')
                 .then(response => response.json())
                 .then(data => {
                     // Filter bills based on the selected category

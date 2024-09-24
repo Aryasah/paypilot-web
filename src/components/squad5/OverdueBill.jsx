@@ -19,7 +19,7 @@ const OverdueBill = () => {
   const username=useSelector(state=>state.auth.userId)
 
   useEffect(() => {
-    fetch(`http://papilot.s3-website.ap-south-1.amazonaws.com/bill/overdue?userId=${username}`)
+    fetch(`http://43.204.228.125:8080/bill/overdue?userId=${username}`)
       .then((response) => response.json())
       .then((data) => {
         setList(data);

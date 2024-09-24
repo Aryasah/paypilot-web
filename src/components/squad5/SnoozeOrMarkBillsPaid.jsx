@@ -18,7 +18,7 @@ const SnoozeOrMarkBillsPaid = () => {
 
   const username = useSelector((state) => state.auth.userId);
   useEffect(() => {
-    fetch(`http://papilot.s3-website.ap-south-1.amazonaws.com/bill/all?userId=${username}`)
+    fetch(`http://43.204.228.125:8080/bill/all?userId=${username}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -86,7 +86,7 @@ const SnoozeOrMarkBillsPaid = () => {
         };
 
         fetch(
-          `http://papilot.s3-website.ap-south-1.amazonaws.com/bill/snooze?newDate=${
+          `http://43.204.228.125:8080/bill/snooze?newDate=${
             snoozeDate.toISOString().split("T")[0]
           }&userId=${username}`,
           {
@@ -149,7 +149,7 @@ const SnoozeOrMarkBillsPaid = () => {
         paymentStatus: "paid",
       };
 
-      fetch(`http://papilot.s3-website.ap-south-1.amazonaws.com/bill/markAsPaid?userId=${username}`, {
+      fetch(`http://43.204.228.125:8080/bill/markAsPaid?userId=${username}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -45,7 +45,7 @@ const SchedulePayment = () => {
   useEffect(() => {
     const fetchPayees = async () => {
       try {
-        const response = await axios.get("http://papilot.s3-website.ap-south-1.amazonaws.com/payees"); // Replace with your actual API endpoint
+        const response = await axios.get("http://43.204.228.125:8080/payees"); // Replace with your actual API endpoint
         setPayees(response.data);
         console.log(response.data);
       } catch (error) {

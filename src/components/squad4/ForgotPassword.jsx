@@ -58,7 +58,7 @@ const ForgotPassword = ({ onBackToLogin }) => {
     const handleSubmitUserDetails = async () => {
         setIsSubmitting(true);
         try {
-            const response = await fetch('http://papilot.s3-website.ap-south-1.amazonaws.com/api/users/verify-user', {
+            const response = await fetch('http://43.204.228.125:8080/api/users/verify-user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ const ForgotPassword = ({ onBackToLogin }) => {
             });
 
             if (response.ok) {
-                const sendOtpResponse = await fetch(`http://papilot.s3-website.ap-south-1.amazonaws.com/api/users/send-otp/${email}`, {
+                const sendOtpResponse = await fetch(`http://43.204.228.125:8080/api/users/send-otp/${email}`, {
                     method: 'POST',
                 });
 
@@ -95,7 +95,7 @@ const ForgotPassword = ({ onBackToLogin }) => {
             setError('OTP has expired. Please request a new OTP.');
         } else {
             try {
-                const response = await fetch('http://papilot.s3-website.ap-south-1.amazonaws.com/api/users/verify-otp', {
+                const response = await fetch('http://43.204.228.125:8080/api/users/verify-otp', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -127,7 +127,7 @@ const ForgotPassword = ({ onBackToLogin }) => {
         }
 
         try {
-            const response = await fetch('http://papilot.s3-website.ap-south-1.amazonaws.com/api/users/reset-password', {
+            const response = await fetch('http://43.204.228.125:8080/api/users/reset-password', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
