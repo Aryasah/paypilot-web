@@ -1,4 +1,4 @@
-name: Deploy on AWS S3
+name: Deploy on S3
 on:
   push:
     branches:
