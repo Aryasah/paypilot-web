@@ -9,7 +9,7 @@ export class PaymentService {
     return new Promise((resolve, reject) => {
       HttpService.httpGet(url)
         .then((response) => {
-          if (response.statusCode === 200) {
+          if (response.statusCode === 200 || response.statusCode === 204) {
             resolve(response.data);
           } else {
             reject(new Error("Failed to get payment history."));
@@ -26,7 +26,7 @@ export class PaymentService {
     return new Promise((resolve, reject) => {
       HttpService.httpGet(url)
         .then((response) => {
-          if (response.statusCode === 200) {
+          if (response.statusCode === 200 || response.statusCode === 204) {
             resolve(response.data);
           } else {
             reject(new Error("Failed to get payment overview."));
@@ -44,7 +44,7 @@ export class PaymentService {
     return new Promise((resolve, reject) => {
       HttpService.httpGet(url)
         .then((response) => {
-          if (response.statusCode === 200) {
+          if (response.statusCode === 200 || response.statusCode === 204) {
             console.log('response we are getting ---- >', response.data);
             resolve(response.data);
           } else {

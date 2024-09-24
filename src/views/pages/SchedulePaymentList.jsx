@@ -100,6 +100,10 @@ const SchedulePaymentList = () => {
         userId
       );
       console.log("response", response);
+      if(!response) {
+        setSchedulePayments([]);
+        return;
+      };
       setSchedulePayments(
         response.filter(
           (item) => item.bill.billCategory === category || category === "All"

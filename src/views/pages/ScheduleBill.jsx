@@ -38,6 +38,10 @@ const ScheduleBill = () => {
         toDate
       );
       console.log("response", response);
+      if(!response) {
+        setSchedulePayments([]);
+        return;
+      };
       const filteredResponse = response.filter(
         (item) => item?.paymentStatus != "Paid"
       )
