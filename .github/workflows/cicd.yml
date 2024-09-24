@@ -2,7 +2,7 @@ name: Deploy on S3
 on:
   push:
     branches:
-      - main
+      - final_team_b
     
 jobs:
   deploy:
