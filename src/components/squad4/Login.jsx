@@ -60,7 +60,7 @@ const Login = () => {
         const normalizedInput = input.includes('@') ? input.toLowerCase() : input;
 
         try {
-            const response = await fetch('http://localhost:8082/api/users/login', {
+            const response = await fetch('http://papilot.s3-website.ap-south-1.amazonaws.com/api/users/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ const Login = () => {
             const normalizedEmail = storedEmail.toLowerCase();
 
             try {
-                const response = await fetch(`http://localhost:8082/api/users/send-otp/${normalizedEmail}`, {
+                const response = await fetch(`http://papilot.s3-website.ap-south-1.amazonaws.com/api/users/send-otp/${normalizedEmail}`, {
                     method: 'POST',
                 });
 
@@ -171,7 +171,7 @@ const Login = () => {
             setError('OTP has expired. Please request a new OTP.');
         } else {
             try {
-                const response = await fetch('http://localhost:8082/api/users/verify-otp', {
+                const response = await fetch('http://papilot.s3-website.ap-south-1.amazonaws.com/api/users/verify-otp', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

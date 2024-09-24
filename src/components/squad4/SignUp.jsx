@@ -68,7 +68,7 @@ const SignUp = () => {
       ifscCode: formData.ifscCode,
     };
     try {
-      const response = await fetch("http://localhost:8082/api/users/signup", {
+      const response = await fetch("http://papilot.s3-website.ap-south-1.amazonaws.com/api/users/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

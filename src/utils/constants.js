@@ -1,5 +1,5 @@
 export default class URLs {
-    static BASE_URL = 'http://localhost:8082';
+    static BASE_URL = 'http://papilot.s3-website.ap-south-1.amazonaws.com';
     
     // URLs for different API endpoints
     static pingBackend = () => `${URLs.BASE_URL}/ping`;

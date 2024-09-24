@@ -18,7 +18,7 @@ function BillDetailsPage() {
         // Fetch bills based on category, fromDate, toDate, and status
         const fetchBills = async () => {
             try {
-                const response = await fetch(`http://localhost:8082/bill/overview?category=${category}&fromDate=${fromDate}&toDate=${toDate}&status=${status}&userId=user123`);
+                const response = await fetch(`http://papilot.s3-website.ap-south-1.amazonaws.com/bill/overview?category=${category}&fromDate=${fromDate}&toDate=${toDate}&status=${status}&userId=user123`);
                 if (response.ok) {
                     const data = await response.json();
                     setBillsData(data); // Set the fetched data to billsData state

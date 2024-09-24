@@ -21,7 +21,7 @@ function RemoveBills() {
     const categories = ["Utilities", "Subscription", "Rent", "Other"];
 
     useEffect(() => {
-        fetch(`http://localhost:8082/bill/all?userId=${username}`)
+        fetch(`http://papilot.s3-website.ap-south-1.amazonaws.com/bill/all?userId=${username}`)
             .then((response) => response.json())
             .then((data) => {
                 setList(data);
@@ -53,7 +53,7 @@ function RemoveBills() {
 
         try {
             const deletePromises = selectedBillIds.map(async (id) => {
-                const response = await fetch(`http://localhost:8082/bill/remove/${id}?userId=${username}`, {
+                const response = await fetch(`http://papilot.s3-website.ap-south-1.amazonaws.com/bill/remove/${id}?userId=${username}`, {
                     method: 'DELETE',
                 });
                 return response.ok;

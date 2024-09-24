@@ -61,7 +61,7 @@ function AddBills() {
 
         try {
             // Send POST request to the API
-            const response = await fetch('http://localhost:8082/bill/add', {
+            const response = await fetch('http://papilot.s3-website.ap-south-1.amazonaws.com/bill/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

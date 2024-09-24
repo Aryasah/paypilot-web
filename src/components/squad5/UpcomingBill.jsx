@@ -18,7 +18,7 @@ const UpcomingBill = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const billsPerPage = 5;
   useEffect(() => {
-    fetch(`http://localhost:8082/bill/upcoming?userId=${username}`)
+    fetch(`http://papilot.s3-website.ap-south-1.amazonaws.com/bill/upcoming?userId=${username}`)
       .then((response) => response.json())
       .then((data) => {
         setList(data);
