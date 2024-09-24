@@ -16,8 +16,6 @@ import { useDispatch } from 'react-redux';
 import { login } from 'src/store/authSlice';
 import { useNavigate } from 'react-router-dom';
 
-
-
 const Login = () => {
     const {
         input,
@@ -201,10 +199,9 @@ const Login = () => {
         }
     };
 
-
     const renderLoginForm = () => (
         <div className="login-container">
-            <h1>Paypilot</h1>
+            <h1><strong>Paypilot</strong></h1>
             <h2>Login</h2>
             <input
                 type="text"
@@ -227,6 +224,10 @@ const Login = () => {
                 Forgot Password?
             </p>
             {error && <p className="error">{error}</p>}
+
+            <p className="signup-link">
+              New user? <a href="/signup">SignUp</a>
+            </p>
         </div>
     );
 
@@ -298,9 +299,11 @@ const Login = () => {
     // Render steps based on the current process step
     return (
         <div className="login-wrapper">
-            <div className="image-container">
-                <img src={error ? SadManImage : ManImage} alt="Login Image" />
-            </div>
+            {!showForgotPassword && (
+                <div className="image-container">
+                    <img src={error ? SadManImage : ManImage} alt="Login Image" />
+                </div>
+            )}
             {!showForgotPassword ? (
                 <>
                     {step === 1 && renderLoginForm()}

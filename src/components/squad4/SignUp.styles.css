@@ -5,7 +5,14 @@
  * Description: This is styles for user signup page.
  */
 
-.registration-container:before {
+ .signup-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.signup-wrapper .registration-container:before {
   position: fixed;
   content: "";
   left: 0;
@@ -18,97 +25,90 @@
   background: url('../../assets/images/background.png') no-repeat center center/cover;
   filter: blur(8px);
   backdrop-filter: blur(5px);
-
 }
 
-.registration-container {
-  position: fixed;
-  left: 0;
-  right: 0;
+.signup-wrapper .registration-container {
+  position: relative;
   z-index: 1;
-  width: 50%;
   margin: 0 auto;
   padding: 20px;
   text-align: center;
   display: flex;
-  width: 100%;
+  width: 75%;
   max-width: 1200px;
   min-height: 100vh;
   justify-content: space-between;
   align-items: center;
 }
 
-
-.image-container {
-  width: 15%;
+.signup-wrapper .image-container {
+  width: 35%;
   display: flex;
   justify-content: center;
   padding: 5%;
 }
 
-.image-container img {
+.signup-wrapper .image-container img {
   max-width: 100%;
   height: auto;
 }
 
-.form-container {
+.signup-wrapper .form-container {
   width: 85%;
   padding-right: 8%;
 }
 
-h2 {
-  font-size: 36px;
-  color: #6a1b9a;
+.signup-wrapper h2 {
+  font-size: 42px;
+  color: black;
   font-style: italic;
+  text-align: center;
+  padding-left: 0%;
+  margin-left: 0px;
+  margin-right: 10%;
 }
 
-h3 {
-  font-size: 24px;
+.signup-wrapper h3 {
+  font-size: 36px;
   margin-bottom: 20px;
+  text-align: center;
+  color: #6a1b9a;
+  padding-right: 8%;
+  font-weight: bold;
 }
 
-.signup_span {
+.signup-wrapper .signup_span {
   width: 0;
   display: inline-block;
   overflow: visible;
-  /* Ensures the content overflows the 0-width box */
   white-space: nowrap;
 }
 
-.form-row {
+.signup-wrapper .form-row {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
-input {
+.signup-wrapper input, .signup-wrapper select {
   background-color: rgba(255, 255, 255, 0.3);
-  /* White with 30% transparency */
   color: #000;
-  /* Text color */
   box-sizing: border-box;
   width: 48%;
   padding: 10px;
   font-size: 16px;
   border: 2px solid black;
   border-radius: 5px;
+  margin: 3px;
 }
 
-input::placeholder {
+.signup-wrapper input::placeholder {
   color: black;
   opacity: 1;
 }
 
-select {
-  box-sizing: border-box;
-  width: 48%;
-  padding: 10px;
-  font-size: 16px;
-  border: 2px solid black;
-  border-radius: 5px;
-}
 
-.submit-btn {
+.signup-wrapper .submit-btn {
   padding: 10px 20px;
   font-size: 18px;
   color: #fff;
@@ -118,23 +118,28 @@ select {
   cursor: pointer;
 }
 
-.submit-btn:hover {
+.signup-wrapper .submit-btn:hover {
   background-color: #4a148c;
 }
 
-.login-link {
+.signup-wrapper .login-link {
   font-weight: bold;
+  font-style: italic;
   margin-top: 20px;
-  font-size: 20px;
+  font-size: 25px;
+  color: #6a1b9a;
 }
 
-.login-link a {
-  color: black;
+.signup-wrapper .login-link a {
+  color: #6a1b9a;
   text-decoration: underline;
 }
 
-.formErrors {
+.signup-wrapper .login-link a:hover {
+  color: #000000;
+}
+
+.signup-wrapper .formErrors {
   color: red;
   font-size: 18px;
-
 }

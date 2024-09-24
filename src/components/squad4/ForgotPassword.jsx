@@ -5,8 +5,11 @@
  * Description: This is the code for ForgotPassword flow for the Login.
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './ForgotPassword.styles.css';
+import ManImage from '../../assets/images/man.png';
+import SadManImage from '../../assets/images/sadman.png';
+
 
 const ForgotPassword = ({ onBackToLogin }) => {
     const [email, setEmail] = useState('');
@@ -178,87 +181,95 @@ const ForgotPassword = ({ onBackToLogin }) => {
     };
 
     return (
-        <div className="forgot-password-container">
-            {step === 1 && (
-                <div className="forgot-password-form">
-                    <h2>Forgot Password</h2>
-                    <input
-                        type="text"
-                        placeholder="Enter registered User ID"
-                        value={userId}
-                        onChange={(e) => setUserId(e.target.value)}
-                    />
-                    <input
-                        type="email"
-                        placeholder="Enter registered Email ID"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value.toLowerCase())}
-                    />
-                    <button
-                        onClick={handleSubmitUserDetails}
-                        disabled={isSubmitting}
-                        className={isSubmitting ? 'send-otp-btn disabled' : 'send-otp-btn'}
-                    >
-                        {isSubmitting ? 'Sending OTP...' : 'Submit'}
-                    </button>
-                    {error && <p className="error">{error}</p>}
-                </div>
-            )}
-
-            {step === 2 && (
-                <div>
-                    <h2>OTP Verification</h2>
-                    <p><b>OTP sent to {email}</b></p>
-                    {!isOtpExpired && otpSent && (
-                        <p>
-                            <b>Please enter the OTP within {formatCountdown(countdown)}.</b>
-                        </p>
-                    )}
-                    {isOtpExpired ? (
+        <div className="forgot-password-wrapper">
+            {/* Form Container */}
+            <div className="forgot-password-container">
+                {step === 1 && (
+                    <div className="forgot-password-form">
+                        <h2>Forgot Password</h2>
+                        <input
+                            type="text"
+                            placeholder="Enter registered User ID"
+                            value={userId}
+                            onChange={(e) => setUserId(e.target.value)}
+                        />
+                        <input
+                            type="email"
+                            placeholder="Enter registered Email ID"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value.toLowerCase())}
+                        />
                         <button
-                            onClick={handleResendOtp}
-                            disabled={resendingOtp}
-                            className={`resend-otp-btn ${resendingOtp ? 'disabled' : ''}`}
+                            onClick={handleSubmitUserDetails}
+                            disabled={isSubmitting}
+                            className={isSubmitting ? 'send-otp-btn disabled' : 'send-otp-btn'}
                         >
-                            {resendingOtp ? 'Resending OTP...' : 'Resend OTP'}
+                            {isSubmitting ? 'Sending OTP...' : 'Submit'}
                         </button>
-                    ) : (
-                        <>
-                            <input
-                                type="text"
-                                placeholder="Enter OTP"
-                                value={otp}
-                                onChange={(e) => setOtp(e.target.value)}
-                            />
-                            <button onClick={handleOtpVerification}>Verify OTP</button>
-                        </>
-                    )}
-                    {error && <p className="error">{error}</p>}
-                </div>
-            )}
+                        {error && <p className="error">{error}</p>}
+                    </div>
+                )}
+                {step === 2 && (
+                    <div>
+                        <h2>OTP Verification</h2>
+                        <p><b>OTP sent to {email}</b></p>
+                        {!isOtpExpired && otpSent && (
+                            <p>
+                                <b>Please enter the OTP within {formatCountdown(countdown)}.</b>
+                            </p>
+                        )}
+                        {isOtpExpired ? (
+                            <button
+                                onClick={handleResendOtp}
+                                disabled={resendingOtp}
+                                className={`resend-otp-btn ${resendingOtp ? 'disabled' : ''}`}
+                            >
+                                {resendingOtp ? 'Resending OTP...' : 'Resend OTP'}
+                            </button>
+                        ) : (
+                            <>
+                                <input
+                                    type="text"
+                                    placeholder="Enter OTP"
+                                    value={otp}
+                                    onChange={(e) => setOtp(e.target.value)}
+                                />
+                                <button onClick={handleOtpVerification}>Verify OTP</button>
+                            </>
+                        )}
+                        {error && <p className="error">{error}</p>}
+                    </div>
+                )}
 
-            {step === 3 && (
-                <div>
-                    <h2>Set New Password</h2>
-                    <input
-                        type="password"
-                        placeholder="Enter new password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    {validationErrors.password && <p className="error">{validationErrors.password}</p>}
-                    <input
-                        type="password"
-                        placeholder="Confirm new password"
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                    />
-                    {validationErrors.confirmPassword && <p className="error">{validationErrors.confirmPassword}</p>}
-                    <button onClick={handlePasswordReset}>Reset Password</button>
-                    {error && <p className="error">{error}</p>}
-                </div>
-            )}
+                {step === 3 && (
+                    <div>
+                        <h2>Set New Password</h2>
+                        <input
+                            type="password"
+                            placeholder="Enter new password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        {validationErrors.password && <p className="error">{validationErrors.password}</p>}
+                        <input
+                            type="password"
+                            placeholder="Confirm new password"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                        />
+                        {validationErrors.confirmPassword && <p className="error">{validationErrors.confirmPassword}</p>}
+                        <button onClick={handlePasswordReset}>Reset Password</button>
+                        {error && <p className="error">{error}</p>}
+                    </div>
+                )}
+            </div>
+
+            {/* Image Container */}
+            <div className="man-image">
+                <img src={error ? SadManImage : ManImage} alt="Man" />
+            </div>
         </div>
+
     );
 };
 
