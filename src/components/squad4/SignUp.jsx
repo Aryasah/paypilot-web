@@ -41,18 +41,18 @@ const SignUp = () => {
     const normalizedValue = (name === 'email') ? value.toLowerCase() : value;
 
     setFormData((prevData) => ({
-        ...prevData,
-        [name]: normalizedValue,
+      ...prevData,
+      [name]: normalizedValue,
     }));
-};
+  };
 
   //it handles form submission and API calls
   const handleSubmit = async (e) => {
     e.preventDefault();
     let validationMessage = validateSignUpData(formData);
-    if(validationMessage===""){
+    if (validationMessage === "") {
       setFormErrors("");
-    }else{
+    } else {
       setFormErrors(validationMessage);
       setMessageFromServer("");
       return;
@@ -66,7 +66,7 @@ const SignUp = () => {
       bankName: formData.bankName,
       pan: formData.pan,
       ifscCode: formData.ifscCode,
-    };  
+    };
     try {
       const response = await fetch("http://localhost:8082/api/users/signup", {
         method: "POST",
@@ -98,7 +98,7 @@ const SignUp = () => {
   };
 
   const getManImage = () => {
-    if(formErrors!==""){
+    if (formErrors !== "") {
       return <img src={SadManImage} alt="sad-man"></img>;
     }
     if (
@@ -112,99 +112,101 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="registration-container">
-        <div className="image-container">{getManImage()}</div>
-        <div className="form-container">
-          <h2>PayPilot</h2>
-          <h3>
-            Register Now!! <span className="signup_span" style={messageStyle}>{messageFromServer}</span>
-            <div className="formErrors">{formErrors}</div>
-          </h3>
-          <form onSubmit={handleSubmit}>
-            <div className="form-row">
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter your mail id"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-              <input
-                type="text"
-                name="pan"
-                placeholder="Enter the Pan details"
-                value={formData.pan}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-row">
-              <input
-                type="text"
-                name="userId"
-                placeholder="Enter your user id"
-                value={formData.userId}
-                onChange={handleChange}
-                required
-              />
-              <input
-                type="text"
-                name="bankAccount"
-                placeholder="Enter the Bank account number"
-                value={formData.bankAccount}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-row">
-              <input
-                type="password"
-                name="password"
-                placeholder="Enter the password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-              />
-              <input
-                type="text"
-                name="ifscCode"
-                placeholder="Enter the Bank IFSC code"
-                value={formData.ifscCode}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-row">
-              <input
-                type="password"
-                name="confirmPassword"
-                placeholder="Confirm your password"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                required
-              />
-              <select
-                name="bankName"
-                value={formData.bankName}
-                onChange={handleChange}
-                required
-              >
-                <option value="">Select bank</option>
-                <option value="HDFC">HDFC</option>
-                <option value="SBI">SBI</option>
-                <option value="YES BANK">YES BANK</option>
-              </select>
-            </div>
-            <button type="submit" className="submit-btn">
-              Request Access
-            </button>
-          </form>
-          <p className="login-link">
-            Already a user | <a href="/login">Login</a>
-          </p>
-        </div>
+      <div className="signup-wrapper">
+        <div className="registration-container">
+          <div className="image-container">{getManImage()}</div>
+          <div className="form-container">
+            <h2>PayPilot</h2>
+            <h3>
+              Register Now!! <span className="signup_span" style={messageStyle}>{messageFromServer}</span>
+              <div className="formErrors">{formErrors}</div>
+            </h3>
+            <form onSubmit={handleSubmit}>
+              <div className="form-row">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your mail id"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  type="text"
+                  name="pan"
+                  placeholder="Enter the Pan details"
+                  value={formData.pan}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-row">
+                <input
+                  type="text"
+                  name="userId"
+                  placeholder="Enter your user id"
+                  value={formData.userId}
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  type="text"
+                  name="bankAccount"
+                  placeholder="Enter the Bank account number"
+                  value={formData.bankAccount}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-row">
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Enter the password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  type="text"
+                  name="ifscCode"
+                  placeholder="Enter the Bank IFSC code"
+                  value={formData.ifscCode}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-row">
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  placeholder="Confirm your password"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  required
+                />
+                <select
+                  name="bankName"
+                  value={formData.bankName}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">Select bank</option>
+                  <option value="HDFC">HDFC</option>
+                  <option value="SBI">SBI</option>
+                  <option value="YES BANK">YES BANK</option>
+                </select>
+              </div>
+              <button type="submit" className="submit-btn">
+                Request Access
+              </button>
+            </form>
+            <p className="login-link">
+              Already a user? <a href="/login">Login</a>
+            </p>
+          </div>
 
+        </div>
       </div>
     </>
   );
